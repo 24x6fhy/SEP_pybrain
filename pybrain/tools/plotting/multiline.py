@@ -5,8 +5,12 @@ import math, imp
 from matplotlib.lines import Line2D
 from pylab import clf, plot, axes, show, xlabel, ylabel, savefig, ioff, draw_if_interactive
 
+branch_coverage_addData = {"branch_1": False, "branch_2": False}
+branch_coverage_setLineStyle = {"branch_1": False, "branch_2": False, "branch_3": False, "branch_4": False, "branch_5": False}
+
 
 class MultilinePlotter:
+        
     """  Basic plotting class build on pylab
   Implementing by instancing the class with the number of different plots to show.
   Every plot has an id so adding data is done by addData(id, xValue, yValue) of the given data point
@@ -74,18 +78,22 @@ class MultilinePlotter:
 
 
     def addData(self, id0, x, y):
-        """ The given data point or points is appended to the given line.
+        """The given data point or points is appended to the given line.
 
-    :key id0: The plot ID (counted from 0) the data point(s) belong to.
-    :key x: The x-component of the data point(s)
-    :key y: The y-component of the data point(s)"""
+        :key id0: The plot ID (counted from 0) the data point(s) belong to.
+        :key x: The x-component of the data point(s)
+        :key y: The y-component of the data point(s)"""
         id = id0 + self.offset
         if not (isinstance(x, list) | isinstance(x, tuple)):
+            #Branch1
+            branch_coverage_addData["branch_1"] = True
             self._checkMaxId(id)
             self.indexList[id].append(x)
             self.dataList[id].append(y)
             self.currentID = id
         else:
+            #Branch2
+            branch_coverage_addData["branch_2"] = True
             for i, xi in enumerate(x):
                 self.addData(id0, xi, y[i])
         self.replot = True
@@ -130,25 +138,35 @@ class MultilinePlotter:
 
     :key id: The line or lines (list!) to be modified - defaults to last one added """
         if id is None:
+            #Branch1
+            branch_coverage_setLineStyle["branch_1"] = True
             id = self.currentID
 
         if isinstance(id, list) | isinstance(id, tuple):
+            #Branch2
+            branch_coverage_setLineStyle["branch_2"] = True
             # apply to specified list of lines
             self._checkMaxId(max(id) + self.offset)
             for i in id:
                 self.Lines[i + self.offset].set(**kwargs)
         elif id >= 0:
+            #Branch3
+            branch_coverage_setLineStyle["branch_3"] = True
             # apply to selected line
             self._checkMaxId(id + self.offset)
             self.Lines[id + self.offset].set(**kwargs)
         else:
+            #Branch4
+            branch_coverage_setLineStyle["branch_4"] = True
             # apply to all lines
             for l in self.Lines:
                 l.set(**kwargs)
 
         # set as new default linestyle
         if 'color' in kwargs:
-            kwargs.popitem('color')
+            #Branch5
+            branch_coverage_setLineStyle["branch_5"] = True
+            kwargs.pop('color')#NOTE: I chnged kwargs.popitem('color') changed kwargs.pop('color') since the dict.popitem() takes no arguments and usage is outdated
         self.defaultLineStyle = kwargs
 
 
@@ -210,3 +228,20 @@ if __name__ == "__main__":
                 pbplot.addData(j, i, math.sqrt(float(i * (j + 1))))
     pbplot.show("WorldInteractions", "Fitness", "Example Plot", True)
 
+    def print_coverage(branch_coverage):
+        totalHit = 0
+        coverage_report = []
+        for branch, hit in branch_coverage.items():
+            if hit:
+                status = "Hit"
+                totalHit = totalHit + 1
+            else:
+                status = "Not hit"
+            coverage_report.append(branch + ": " + status)
+        print(", ".join(coverage_report))
+        print("Total coverage percent: " + (str)(totalHit / len(branch_coverage) * 100) + "%")
+        
+    def print_coverage_addData():
+        print_coverage(branch_coverage_addData)
+    def print_coverage_setLineStyle():
+        print_coverage(branch_coverage_setLineStyle)
