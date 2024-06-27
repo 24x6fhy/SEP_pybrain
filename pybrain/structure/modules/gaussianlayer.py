@@ -5,6 +5,17 @@ from pybrain.structure.modules.neuronlayer import NeuronLayer
 from pybrain.tools.functions import expln, explnPrime
 from pybrain.structure.parametercontainer import ParameterContainer
 
+branch_coverage = {
+    "branch_1": False,
+    "branch_2": False,
+}
+
+def printBranchCoverage():
+    for branch, covered in branch_coverage.items():
+        print(f"{branch} {'was hit' if covered else 'was not hit'}")
+    
+    print("Coverage is ", sum(branch_coverage.values()) / len(branch_coverage) * 100, "%\n")      
+
 
 class GaussianLayer(NeuronLayer, ParameterContainer):
     """ A layer implementing a gaussian interpretation of the input. The mean is
@@ -27,8 +38,10 @@ class GaussianLayer(NeuronLayer, ParameterContainer):
 
     def _forwardImplementation(self, inbuf, outbuf):
         if not self.enabled:
+            branch_coverage["branch_1"] = True
             outbuf[:] = inbuf
         else:
+            branch_coverage["branch_2"] = True
             outbuf[:] = random.normal(inbuf, expln(self.params))
 
     def _backwardImplementation(self, outerr, inerr, outbuf, inbuf):

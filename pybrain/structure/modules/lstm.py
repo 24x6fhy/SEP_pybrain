@@ -7,6 +7,17 @@ from pybrain.structure.modules.module import Module
 from pybrain.structure.parametercontainer import ParameterContainer
 from pybrain.tools.functions import sigmoid, sigmoidPrime, tanhPrime
 
+branch_coverage = {
+    "branch_1": False,
+    "branch_2": False,
+}
+
+def printBranchCoverage():
+    for branch, covered in branch_coverage.items():
+        print(f"{branch} {'was hit' if covered else 'was not hit'}")
+    
+    print("Coverage is ", sum(branch_coverage.values()) / len(branch_coverage) * 100, "%\n")      
+
 
 class LSTMLayer(NeuronLayer, ParameterContainer):
     """Long short-term memory cell layer.
@@ -142,8 +153,10 @@ class LSTMLayer(NeuronLayer, ParameterContainer):
         inerr[dim*2:dim*3] = cellError
         inerr[dim*3:] = self.outgateError[self.offset]
 
-    def whichNeuron(self, inputIndex = None, outputIndex = None):
-        if inputIndex != None:
-            return inputIndex % self.dim
-        if outputIndex != None:
+    def whichNeuron(self, inputIndex=None, outputIndex=None):
+        if inputIndex is not None:
+            branch_coverage["branch_1"] = True
+            return inputIndex % self.outdim
+        if outputIndex is not None:
+            branch_coverage["branch_2"] = True
             return outputIndex
