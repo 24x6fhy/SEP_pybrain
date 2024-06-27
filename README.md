@@ -19,13 +19,6 @@ It was executed by the command `coverage run -m unittest discover `
 ![Coverage results](sources/old_coverage.png)
 
 ### Your own coverage tool
-#### Yaïr Jacob
-_forwardImplementation from pybrain/structure/modules/gaussianlayer.py and whichNeuron from pybrain/structure/modules/lstm.py
-[Relevant commit](https://github.com/24x6fhy/SEP_pybrain/commit/a476662013e86b5b76812ad3ac5328d21afb08ed)
-Code output: \
-
-![Yaïr Jacob](sources/yair_coverage.png)
-
 #### Celal Turkmen
 semilinear(x) and explnPrime(x) from pybrain/tools/functions.py \
 [Relevant commit](https://github.com/24x6fhy/SEP_pybrain/commit/4f6d168feb45c2e99709aa0c82eaede21168f136) \
