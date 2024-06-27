@@ -63,7 +63,7 @@ Old coverage: \
 New coverage: \
 ![New Coverage](sources/celal_improvement.png)
 
-Covered statements are increased from 10809 to 10797. This is because test_celal.py file under test/unittest folder includes some test cases covering the statements in tools/functions.py.
+Covered statements are increased from 10809 to 10835. This is because test_celal.py file under test/unittest folder includes some test cases covering the statements in tools/functions.py.
 
 
 #### Enis Kerem Cakmak
@@ -76,7 +76,7 @@ Old coverage: \
 New coverage: \
 ![New Coverage](sources/enis_improvement.png)
 
-As it is seen from the screenshots, the coverage is improved from 10809 to 10822 as a result of the new test cases added under pybrain\tests\unittests\tools\test_enis.py covering the selected function statements in pybrain\tools\plotting\multiline.py.
+As it is seen from the screenshots, the coverage is improved from 10809 to 10836 as a result of the new test cases added under pybrain\tests\unittests\tools\test_enis.py covering the selected function statements in pybrain\tools\plotting\multiline.py.
 
 ### Overall
 Old Coverage:
