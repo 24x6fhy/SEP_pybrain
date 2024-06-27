@@ -36,6 +36,7 @@ Code output: \
 
 #### Enis Kerem Cakmak
 addData(self, id0, x, y) and setLineStyle(self, id=None, **kwargs) from pybrain\tools\plotting\multiline.py \
+[Relevant commit](https://github.com/24x6fhy/SEP_pybrain/commit/8638ffb2020cae48d70d25936c0262559df276e0) \
 Code output: \
 ![Enis Coverage](sources/enis_coverage.PNG)
 ## Coverage improvement
@@ -75,6 +76,21 @@ Covered statements are increased from 10753 to 10797. This is because test_celal
 Old Coverage:
 ![Old Coverage](sources/old_coverage.png)
 
+#### Enis Kerem Cakmak
+
+Note: Test 1 & 2 are both in the same file, that is, multiline.py.
+
+Old coverage: \
+![Old Coverage](sources/old_coverage.png)
+New coverage: \
+![New Coverage](sources/enis_improvement.png)
+
+As it is seen from the screenshots, the coverage is improved from 10753 to 10822 as a result of the new test cases added under pybrain\tests\unittests\tools\test_enis.py covering the selected function statements in pybrain\tools\plotting\multiline.py.
+
+### Overall
+Old Coverage:
+![Old Coverage](sources/old_coverage.png)
+
 <Provide a screenshot of the new coverage results by running the existing tool using all test modifications made by the group>
 
 ## Statement of individual contributions
@@ -84,3 +100,9 @@ Old Coverage:
 - Instrumented the aforementioned functions.
 - Showed the improvement of the coverage thanks to the instrumented functions in the report.
 - Completed my own part in the report.
+
+### Enis Kerem Cakmak
+- Selected the individual functions to be tested.
+- Instrumented the functions with custom coverage tool.
+- Improved existing coverage with the new testcases and instrumented functions added.
+- Finished the necessary report part.

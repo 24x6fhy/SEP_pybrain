@@ -228,20 +228,20 @@ if __name__ == "__main__":
                 pbplot.addData(j, i, math.sqrt(float(i * (j + 1))))
     pbplot.show("WorldInteractions", "Fitness", "Example Plot", True)
 
-    def print_coverage(branch_coverage):
-        totalHit = 0
-        coverage_report = []
-        for branch, hit in branch_coverage.items():
-            if hit:
-                status = "Hit"
-                totalHit = totalHit + 1
-            else:
-                status = "Not hit"
-            coverage_report.append(branch + ": " + status)
-        print(", ".join(coverage_report))
-        print("Total coverage percent: " + (str)(totalHit / len(branch_coverage) * 100) + "%")
+def print_coverage(branch_coverage):
+    totalHit = 0
+    coverage_report = []
+    for branch, hit in branch_coverage.items():
+        if hit:
+            status = "Hit"
+            totalHit = totalHit + 1
+        else:
+            status = "Not hit"
+        coverage_report.append(branch + ": " + status)
+    print(", ".join(coverage_report))
+    print("Total coverage percent: " + (str)(totalHit / len(branch_coverage) * 100) + "%")
         
-    def print_coverage_addData():
-        print_coverage(branch_coverage_addData)
-    def print_coverage_setLineStyle():
-        print_coverage(branch_coverage_setLineStyle)
+def print_coverage_addData():
+    print_coverage(branch_coverage_addData)
+def print_coverage_setLineStyle():
+    print_coverage(branch_coverage_setLineStyle)    
