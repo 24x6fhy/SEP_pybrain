@@ -78,4 +78,4 @@ Final Coverage:
 - Finished the necessary report part.
 
 ### Yair Jacob
-- None
+- He instrumented functions wrong, and stopped replying to our messages. Since we couldn't reach him, we decided to delete his incomplete and wrong functions and continue without his work after asking Fernanda Madeiral Delfim.
