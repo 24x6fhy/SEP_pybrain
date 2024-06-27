@@ -43,24 +43,6 @@ Code output: \
 
 ### Individual tests
 
-<The following is supposed to be repeated for each group member>
-
-<Group member name>
-
-<Test 1>
-
-<Show a patch (diff) or a link to a commit made in your forked repository that shows the new/enhanced test>
-
-<Provide a screenshot of the old coverage results (the same as you already showed above)>
-
-<Provide a screenshot of the new coverage results>
-
-<State the coverage improvement with a number and elaborate on why the coverage is improved>
-
-<Test 2>
-
-<Provide the same kind of information provided for Test 1>
-
 #### Celal Turkmen
 
 Note: Test 1 & 2 are both in the same file, so I did not make it separately.
@@ -71,10 +53,6 @@ New coverage: \
 ![New Coverage](sources/celal_improvement.png)
 
 Covered statements are increased from 10753 to 10797. This is because test_celal.py file under test/unittest folder includes some test cases covering the statements in tools/functions.py.
-
-### Overall
-Old Coverage:
-![Old Coverage](sources/old_coverage.png)
 
 #### Enis Kerem Cakmak
 
