@@ -41,6 +41,16 @@ Code output: \
 
 ### Individual tests
 
+#### Yaïr Jacob
+[Relevant commit](https://github.com/24x6fhy/SEP_pybrain/commit/cdc522f50547317da2c2edbbc75285e68ca8e7bc)
+
+Old coverage : \ 
+![Old Coverage File](sources/yair_before_cov.png)
+![Old Covered Statements](sources/coverage_before_yair.png)
+New coverage: \
+![New Coverage](sources/yair_after_cov.png)
+![Old Covered Statements](sources/overall_before_coverage.png)
+
 #### Celal Turkmen
 
 Note: Test 1 & 2 are both in the same file, so I did not make it separately.
@@ -67,10 +77,10 @@ As it is seen from the screenshots, the coverage is improved from 10753 to 10822
 
 ### Overall
 Old Coverage:
-![Old Coverage](sources/old_coverage.png)
+![Old Coverage](sources/overall_before_coverage.png)
 
 Final Coverage:
-![Final Coverage](sources/final_coverage.png)
+![Final Coverage](sources/overall_after_coverage.png)
 
 ## Statement of individual contributions
 
@@ -87,4 +97,7 @@ Final Coverage:
 - Finished the necessary report part.
 
 ### Yair Jacob
-- None
+- Sought for projects that fit the requirements
+- Selected individual functions to be tested.
+- Improved existing coverage with new testcases
+- Report finalization
